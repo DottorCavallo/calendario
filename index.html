@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario Giocate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:wght@400;700&family=Rock+Salt&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url('https://images.alphacoders.com/984/984074.jpg'); /* Aggiungi l'immagine di sfondo */
+            background-size: cover; /* Rende l'immagine di sfondo coprente */
+            background-position: center; /* Centra l'immagine di sfondo */
+            height: 100vh;
+            margin-left: 20px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+
+        h1 {
+            text-align: center;
+            color: #99db8f;
+            text-shadow: 0 0 100px rgba(0, 255, 0, 0.5);
+            font-size: 150px;
+            letter-spacing: 12px;
+            font-family: 'Creepster', cursive;
+            animation: pulse 8s infinite;
+        }
+
+      h2 {
+    margin-top: -50px;
+    margin-bottom: 80px;
+    text-align: center;
+    color: #ffcc00; /* Colore dorato */
+    font-size: 22px; /* Dimensione del font */
+    font-family: 'Rock Salt', cursive; /* Font in stile goblin */
+    height: 220px; /* Altezza del rettangolo */
+    
+    background-color: rgba(20, 20, 20, 0.9); /* Sfondo scuro semi-trasparente */
+    padding: 1px; 
+    border-radius: 15px; /* Angoli arrotondati */
+    
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.5), /* Ombra leggera sotto */
+        0 4px 15px rgba(0, 0, 0, 0.3), /* Ombra media sotto */
+        inset -5px -5px rgba(255, 255, 255, 0.1), /* Ombra interna chiara */
+        inset 5px 5px rgba(0, 0, 0, 0.5); /* Ombra interna scura */
+
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.7), /* Ombra nera per profondità */
+        -1px -1px 2px rgba(255, 255, 255, 0.3), /* Ombra bianca per contrasto */
+        0 0 10px rgba(255,215,0,.8), /* Luccichio dorato */
+        0 0 5px rgba(255,215,0,.6); /* Luccichio dorato più ampio */
+
+    overflow-wrap: break-word; /* Forza le parole lunghe a andare a capo */
+    overflow-y: auto; /* Aggiunge una barra di scorrimento verticale se necessario */
+}
+
+        /* Contenitore principale per i giorni */
+        .calendar-container {
+            display: flex; /* Imposta il layout come Flexbox */
+            justify-content: space-around; /* Spaziatura uniforme tra i contenitori */
+        }
+
+        .calendar {
+            width: 300px; /* Larghezza fissa del calendario */
+            height: 200px; /* Altezza del cerchio */
+            border-radius: 50%; /* Forma circolare */
+            background-color: rgba(20, 20, 20, 0.9);
+            padding: 20px; 
+            box-shadow:
+                0 2px 10px rgba(0, 0, 0, 0.5),
+                0 4px 15px rgba(0, 0, 0, 0.3),
+                inset -5px -5px rgba(255, 255, 255, 0.1),
+                inset 5px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .day {
+            margin-bottom: 15px; 
+        }
+
+        .day-header {
+            font-family: 'Rock Salt', cursive; 
+            color: #99db8f; 
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.1); 
+            font-size: 1em; 
+            text-align: center; 
+        }
+
+        .turno {
+           color: #99db8f; 
+           font-size: 8px;
+           padding: 2px; 
+           margin-top: 5px; 
+           text-align: center; 
+           border-radius: 50px;    
+           font-family: 'Press Start 2P', cursive; 
+        }
+
+        .mattina { background-color: rgba(85, 107, 47, 0.7); }
+        .pomeriggio { background-color: rgba(60, 60, 60, 0.7); }
+        .sera { background-color: rgba(30, 30, 30, 0.7); }
+
+        input[type="text"] {
+            width: calc(100% - 20px); 
+            padding: 5px; 
+            margin-top: 5px; 
+           font-size: 1em;
+           font-weight: 900;                 
+           text-transform: uppercase; 
+           text-align: center; 
+           letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+<h1>Calendario Giocate</h1>
+<h2>Ogni giorno è un'ennesima follia divisa in tre fasi: mattina, pomeriggio e sera. Se pensi di essere pronto a sopravvivere alle mie geniali invenzioni, scrivi il tuo nome. Ma ricorda, non è una passeggiata! Se riesci a non esplodere - o scappare urlando - forse avrai la fortuna di incontrarmi. Prenota il tuo turno e preparati a tutto... o niente, dipende da come mi sveglio!</h2>
+
+<!-- Contenitore principale per i giorni -->
+<div class="calendar-container">
+    <!-- Contenitore per Lunedì -->
+    <div class="calendar">
+        <div class="day day-header">Lunedì</div>
+        
+        <div class="day">
+            <div class="turno mattina">
+                Turno Mattina<br>
+                <input type="text" placeholder="Nome PG">
+            </div>
+            
+            <div class="turno pomeriggio">
+                Turno Pomeriggio<br>
+                <input type="text" placeholder="Nome PG">
+            </div>
+            
+            <div class="turno sera">
+                Turno Sera<br>
+                <input type="text" placeholder="Nome PG">
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenitore per Martedì -->
+    <div class="calendar">
+        <div class="day day-header">Martedì</div>
+
+        <div class="day">
+            <div class="turno mattina">
+                Turno Mattina<br>
+                <input type="text" placeholder="Nome PG">
+            </div>
+
+            <div class="turno pomeriggio">
+                Turno Pomeriggio<br>
+                <input type="text" placeholder="Nome PG">
+            </div>
+
+            <div class="turno sera">
+                Turno Sera<br>
+                <input type="text" placeholder="Nome PG">
+            </div>
+        </div>
+    </div>
+
+<!-- Contenitore per Mercoledì -->
+    <div class="calendar">
+        <div class="day day-header">Mercoledì</div>
+
+        <div class="day">
+            <div class="turno mattina">
+                Turno Mattina<br>
+                <input type="text" placeholder="Nome PG">
+            </div>
+
+            <div class="turno pomeriggio">
+                Turno Pomeriggio<br>
+                <input type="text" placeholder="Nome PG">
+            </div>
+
+            <div class="turno sera">
+                Turno Sera<br>
+                <input type="text" placeholder="Nome PG">
+            </div>
+        </div>
+    </div>
+
+  
+  <!-- Contenitore per Giovedì -->
+    <div class="calendar">
+        <div class="day day-header">Giovedì</div>
+        
+        <div class="day">
+            <div class="turno mattina">
+                Turno Mattina<br>
+                <input type="text" placeholder="Nome PG">
+            </div>
+            
+            <div class="turno pomeriggio">
+                Turno Pomeriggio<br>
+                <input type="text" placeholder="Nome PG">
+            </div>
+            
+            <div class="turno sera">
+                Turno Sera<br>
+                <input type="text" placeholder="Nome PG">
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenitore per Venerdì -->
+    <div class="calendar">
+        <div class="day day-header">Venerdì</div>
+
+        <div class="day">
+            <div class="turno mattina">
+                Turno Mattina<br>
+                <input type="text" placeholder="Nome PG">
+            </div>
+
+            <div class="turno pomeriggio">
+                Turno Pomeriggio<br>
+                <input type="text" placeholder="Nome PG">
+            </div>
+
+            <div class="turno sera">
+                Turno Sera<br>
+                <input type="text" placeholder="Nome PG">
+            </div>
+        </div>
+    </div>
+
+<!-- Contenitore per Sabato -->
+    <div class="calendar">
+        <div class="day day-header">Sabato</div>
+
+        <div class="day">
+            <div class="turno mattina">
+                Turno Mattina<br>
+                <input type="text" placeholder="Nome PG">
+            </div>
+
+            <div class="turno pomeriggio">
+                Turno Pomeriggio<br>
+                <input type="text" placeholder="Nome PG">
+            </div>
+
+            <div class="turno sera">
+                Turno Sera<br>
+                <input type="text" placeholder="Nome PG">
+            </div>
+        </div>
+    </div>
+
+<!-- Contenitore per Domenica -->
+    <div class="calendar">
+        <div class="day day-header">Domenica</div>
+
+        <div class="day">
+            <div class="turno mattina">
+                Turno Mattina<br>
+                <input type="text" placeholder="Nome PG">
+            </div>
+
+            <div class="turno pomeriggio">
+                Turno Pomeriggio<br>
+                <input type="text" placeholder="Nome PG">
+            </div>
+
+            <div class="turno sera">
+                Turno Sera<br>
+                <input type="text" placeholder="Nome PG">
+            </div>
+        </div>
+    </div>
+  
+</div>
+</body>
+</html>
